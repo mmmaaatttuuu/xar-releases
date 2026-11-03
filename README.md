@@ -46,3 +46,7 @@ loopback. Downloading an update does not publish a user's workspace.
 XAR 2.0.3 also adds Google Gemini Windows app and installed browser-app discovery,
 with Gemini CLI shown separately in **Detected AIs**. Discovery reports observed
 installation/process evidence; connecting an agent is a separate capability.
+
+## Notification UI patch for 2.0.5
+
+The [notification patch](patches/notification-ui) replaces the oversized recovery notice with a compact dark card, expandable details, and an Auto Help shortcut. It includes a backup-aware PowerShell installer. This manual UI patch is separate from signed executable releases and is not delivered by the automatic updater.

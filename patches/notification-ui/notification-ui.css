@@ -1,0 +1,66 @@
+/* The native recovery notice must size to its content, never to the viewport. */
+#xar-source-review {
+ position: fixed !important;
+ inset: 84px 20px auto auto !important;
+ width: min(390px, calc(100vw - 32px)) !important;
+ height: auto !important;
+ min-height: 0 !important;
+ max-height: calc(100dvh - 108px) !important;
+ box-sizing: border-box;
+ display: grid !important;
+ grid-template-columns: 30px minmax(0, 1fr) 24px;
+ align-items: start !important;
+ gap: 12px !important;
+ margin: 0 !important;
+ padding: 18px !important;
+ overflow: auto;
+ border: 1px solid #3b3b35 !important;
+ border-radius: 12px !important;
+ background: #171715 !important;
+ color: #e8e7df !important;
+ box-shadow: 0 12px 40px #0008, inset 0 1px 0 #ffffff06 !important;
+ font: 12px/1.55 'Segoe UI', sans-serif !important;
+ z-index: 100 !important;
+ animation: xar-notice-arrive .24s ease-out;
+}
+#xar-source-review[hidden] { display: none !important; }
+#xar-source-review .xar-notice-badge {
+ display: grid; place-items: center; width: 30px; height: 30px;
+ border: 1px solid #666754; border-radius: 50%; background: #27291f;
+ color: #d9dfbb; font-size: 15px;
+}
+#xar-source-review .xar-notice-content { min-width: 0; }
+#xar-source-review .xar-notice-title {
+ display: block; margin: 2px 0 5px; color: #f0efe8; font-size: 13px;
+ font-weight: 600; letter-spacing: -.15px;
+}
+#xar-source-review .xar-notice-description { margin: 0; color: #aaa99f; font-size: 12px; }
+#xar-source-review .xar-notice-details { margin-top: 10px; }
+#xar-source-review summary { width: fit-content; cursor: pointer; color: #c6c5b7; font-size: 11px; }
+#xar-source-review summary:hover { color: #fff; }
+#xar-source-review summary:focus-visible { outline: 2px solid #dedecb; outline-offset: 4px; }
+#xar-source-review .xar-notice-details p {
+ margin: 9px 0 0; padding: 10px; border: 1px solid #36362e; border-radius: 6px;
+ background: #11110f; color: #a7a799; overflow-wrap: anywhere; font: 10px/1.7 var(--mono, monospace);
+}
+#xar-source-review .xar-notice-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+#xar-source-review .xar-notice-help {
+ padding: 7px 10px; border: 1px solid #555548; border-radius: 5px;
+ background: #e1e0d1; color: #171713; font: 600 10px/1.4 'Segoe UI', sans-serif;
+ cursor: pointer; transition: background .15s;
+}
+#xar-source-review .xar-notice-help:hover { background: #f5f4e6; }
+#xar-source-review .xar-notice-label { color: #78786c; font: 7px/1.5 var(--mono, monospace); letter-spacing: 1px; }
+#xar-source-review .xar-notice-dismiss {
+ position: static !important; display: grid; place-items: center;
+ width: 24px !important; height: 24px !important; min-height: 0 !important;
+ margin: -4px -5px 0 0 !important; padding: 0 !important;
+ border: 0 !important; border-radius: 4px !important;
+ background: transparent !important; color: #909086 !important;
+ font: 20px/1 'Segoe UI', sans-serif !important; cursor: pointer;
+}
+#xar-source-review .xar-notice-dismiss:hover { color: #fff !important; background: #ffffff0a !important; }
+@keyframes xar-notice-arrive { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 540px) { #xar-source-review { inset: 74px 16px auto auto !important; padding: 14px !important; } }
+@media (prefers-reduced-motion: reduce) { #xar-source-review { animation: none; } }
+.motion-off #xar-source-review { animation: none; }
